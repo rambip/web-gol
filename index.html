@@ -38,100 +38,72 @@
 
 
 		<noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>		
-		<script type="module">
-			import init from './game_of_life.js';
-			import {Universe} from './game_of_life.js';
+                <script type="module">
+                        import init from './pkg/game_of_life.js';
+                        import {Universe} from './pkg/game_of_life.js';
 
-			// init canvas size
-			const width = Math.round(document.documentElement.clientWidth/2-20);
-			const height = Math.round(document.documentElement.clientHeight/2-100);
+                        // init canvas size
+                        const width = Math.round(document.documentElement.clientWidth/2-20);
+                        const height = Math.round(document.documentElement.clientHeight/2-100);
 
-			// init canvas and draw utilities
-			const canvas = document.getElementById("canvas"); canvas.width = width*2; canvas.height=height*2;
-			const ctx = canvas.getContext('2d');
+                        // init canvas and draw utilities
+                        const canvas = document.getElementById("canvas"); canvas.width = width*2; canvas.height=height*2;
+                        const ctx = canvas.getContext('2d');
 
-            const birth_rule = document.getElementById("birth").children;
-            const survive_rule = document.getElementById("survive").children;
+                        const birth_rule = document.getElementById("birth").children;
+                        const survive_rule = document.getElementById("survive").children;
 
-			document.getElementById("change").onclick = new_universe;
-			document.getElementById("random").onclick = random_rule;
+                        document.getElementById("change").onclick = new_universe;
+                        document.getElementById("random").onclick = random_rule;
 
-			let image = new ImageData(width*2, height*2);
+                        let image = new ImageData(width*2, height*2);
             let demo;
 
-			function new_universe(){
+                        function new_universe(){
                 let birth = ""; let survive = "";
-				for (let i = 0; i < 9; i++) {
-					if (birth_rule[i].checked) birth += i.toString();
-					if (survive_rule[i].checked) survive += i.toString();
-				}
-                
-				demo = Universe.new(birth, survive, width, height);
+                                for (let i = 0; i < 9; i++) {
+                                        if (birth_rule[i].checked) birth += i.toString();
+                                        if (survive_rule[i].checked) survive += i.toString();
+                                }
+
+                                demo = new Universe(birth, survive, width, height);
 
                 for (var y = height/4; y < height*3/4; y++) {
-					for (var x = width/4; x < width*3/4; x++) {
-						if (Math.random() > .6) {
+                                        for (var x = width/4; x < width*3/4; x++) {
+                                                if (Math.random() > .6) {
                             demo.add_cell(x, y);
                         }
-					}
-				}
-			}
+                                        }
+                                }
+                        }
 
-			function random_rule(){
-				for (let i = 0; i < 9; i++) {
-					birth_rule[i].checked = Math.random()>0.8;
-					survive_rule[i].checked = Math.random()>0.7;
-				}
-			}
+                        function random_rule(){
+                                for (let i = 0; i < 9; i++) {
+                                        birth_rule[i].checked = Math.random()>0.8;
+                                        survive_rule[i].checked = Math.random()>0.7;
+                                }
+                        }
 
             function frame_loop(x){
                 demo.step();
-
-                var i = 0;
-				for (var y = 0; y < height; y++) {
-					for (var x = 0; x < width; x++) {
-						let c = demo.cell(x, y)*255;
-						image.data[i++] = 255;
-						image.data[i++] = 255;
-						image.data[i++] = 255;
-						image.data[i++] = c;
-                        image.data[i++] = 255;
-						image.data[i++] = 255;
-						image.data[i++] = 255;
-						image.data[i++] = c;
-					}
-                    for (var x = 0; x < width; x++) {
-						let c = demo.cell(x, y)*255;
-						image.data[i++] = 255;
-						image.data[i++] = 255;
-						image.data[i++] = 255;
-						image.data[i++] = c;
-                        image.data[i++] = 255;
-						image.data[i++] = 255;
-						image.data[i++] = 255;
-						image.data[i++] = c;
-					}
-				}
-
-                ctx.putImageData(image, 0, 0);
-
+                demo.draw(ctx)
                 setTimeout(() => requestAnimationFrame(frame_loop), 20);
             }
 
-			function run(){
-                demo = Universe.new("3", "23", width, height);
+                        function run(){
+                demo = new Universe("3", "23", width, height);
                 for (var y = height/4; y < height*3/4; y++) {
-					for (var x = width/4; x < width*3/4; x++) {
-						if (Math.random() > .6) {
+                                        for (var x = width/4; x < width*3/4; x++) {
+                                                if (Math.random() > .6) {
                             demo.add_cell(x, y);
                         }
-					}
-				}
+                                        }
+                                }
 
                 frame_loop()
             }
 
-			init().then(run);
-					</script>
+                        init().then(run);
+                </script>
 	</body>
 </html>
