@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=0.7">
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="/style.css">
-		<title>games of life</title>
-	</head>
-	<body>
-		<div class="h-box">
-			<div style="width: 100%">
-				<h2 style="text-align: center">Games of life</h2>
-			</div>
-		</div>
-        <div class="parent-box">
-            <div style="margin:15px"><canvas id="canvas"></canvas></div>
-		</div>
-		<div class="h-box" style="position: absolute; bottom: 5px;">
-			<button id="random" style="margin: 15px; margin-bottom: 0;">random rule</button>
-			<div class="v-box" style="width: 300px">
-				<div class="h-box">
-					<div style="width:100px;"></div>
-					<div class="h-box" style="justify-content: space-around; width: 100%"><div>0</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div>
-				</div>
-				<div class="h-box">
-					<div style="width:100px; text-align: center">birth</div>
-					<div class="h-box" id="birth" style="justify-content: space-around; width: 100%"><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox" checked="checked"><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"></div>
-				</div>
-				<div class="h-box">
-					<div style="width:100px; text-align: center">survival</div>
-					<div class="h-box" id="survive" style="justify-content: space-around; width: 100%"><input type="checkbox"><input type="checkbox"><input type="checkbox" checked="checked"><input type="checkbox" checked="checked"><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"></div>
-				</div>
-			</div>
-			<button id="change" style="margin: 15px; margin-bottom: 0; background-color: #8c4392;">test rule</button>
-			<div style="margin: 5px"></div>
-		</div>
-		
+        <head>
+                <meta name="viewport" content="width=device-width, initial-scale=0.7">
+                <meta charset="utf-8">
+                <link rel="stylesheet" href="/style.css">
+                <title>games of life</title>
+        </head>
+        <body>
+                <div class="h-box">
+                        <div style="width: 100%">
+                                <h2 style="text-align: center">Games of life</h2>
+                        </div>
+                </div>
+                <div class="parent-box">
+                        <div style="margin:15px"><canvas id="canvas"></canvas></div>
+                </div>
+                <div class="h-box" style="position: absolute; bottom: 5px;">
+                        <button id="random" style="margin: 15px; margin-bottom: 0;">random rule</button>
+                        <div class="v-box" style="width: 300px">
+                                <div class="h-box">
+                                        <div style="width:100px;"></div>
+                                        <div class="h-box" style="justify-content: space-around; width: 100%"><div>0</div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div>
+                                </div>
+                                <div class="h-box">
+                                        <div style="width:100px; text-align: center">birth</div>
+                                        <div class="h-box" id="birth" style="justify-content: space-around; width: 100%"><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox" checked="checked"><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"></div>
+                                </div>
+                                <div class="h-box">
+                                        <div style="width:100px; text-align: center">survival</div>
+                                        <div class="h-box" id="survive" style="justify-content: space-around; width: 100%"><input type="checkbox"><input type="checkbox"><input type="checkbox" checked="checked"><input type="checkbox" checked="checked"><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"></div>
+                                </div>
+                        </div>
+                        <button id="change" style="margin: 15px; margin-bottom: 0; background-color: #8c4392;">test rule</button>
+                        <div style="margin: 5px"></div>
+                </div>
 
 
-		<noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>		
-                <script type="module" src="./index.js">
+
+                <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>		
+                <script type="module" src="./index.js?1500">
                 </script>
-	</body>
+        </body>
 </html>

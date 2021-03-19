@@ -1,6 +1,6 @@
 
-import init from './pkg/game_of_life.js';
-import {Universe} from './pkg/game_of_life.js';
+import init from './wasm/game_of_life.js';
+import {Universe} from './wasm/game_of_life.js';
 
 // init canvas size
 const width = Math.round(document.documentElement.clientWidth/2-20);
