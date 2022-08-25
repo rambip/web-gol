@@ -1,6 +1,5 @@
-
-import init from './wasm/game_of_life.js';
-import {Universe} from './wasm/game_of_life.js';
+import init from './web_gol.js';
+import {Universe} from './web_gol.js';
 
 // init canvas size
 const width = Math.round(document.documentElement.clientWidth/2-20);
